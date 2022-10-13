@@ -6,7 +6,7 @@ class Menu extends React.Component {
     return (
       <div>
         <h1> TrybeFy </h1>
-        <Link to="/"> Home </Link>
+        <Link to="/">Home</Link>
         <Link to="/favorites"> Favoritas </Link>
         <Link to="/album"> Albuns </Link>
         <Link to="/search"> Procurar </Link>

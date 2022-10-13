@@ -13,12 +13,12 @@ class Routes extends React.Component {
     return (
       <Switch>
         <Route exact path="/" component={ Login } />
-        <Route path="/search" component={ Search } />
-        <Route path="/album/:id" component={ Album } />
-        <Route path="/favorites" component={ Favorites } />
-        <Route path="/profile/edit" component={ Edit } />
-        <Route path="/profile" component={ Profile } />
-        <Route path="*" component={ NotFound } />
+        <Route exact path="/search" component={ Search } />
+        <Route exact path="/album/:id" component={ Album } />
+        <Route exact path="/favorites" component={ Favorites } />
+        <Route exact path="/profile/edit" component={ Edit } />
+        <Route exact path="/profile" component={ Profile } />
+        <Route exact path="*" component={ NotFound } />
       </Switch>
     );
   }
