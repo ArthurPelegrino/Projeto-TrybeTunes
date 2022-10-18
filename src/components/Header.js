@@ -21,13 +21,12 @@ class Header extends React.Component {
     const { isLoading, userName } = this.state;
     return (
       <div data-testid="header-component">
-        <h1>Header</h1>
         <p data-testid="header-user-name">
           { userName }
         </p>
-        <Link to="/search" data-testid="link-to-search">Ir para pesquisa</Link>
-        <Link to="/favorites" data-testid="link-to-favorites">Musicas favoritas</Link>
-        <Link to="/profile" data-testid="link-to-profile">Perfil</Link>
+        <Link to="/search" data-testid="link-to-search">Pesquisar   </Link>
+        <Link to="/favorites" data-testid="link-to-favorites">Musicas favoritas   </Link>
+        <Link to="/profile" data-testid="link-to-profile"> Perfil   </Link>
         {isLoading && <Loading />}
       </div>
     );

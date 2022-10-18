@@ -8,6 +8,7 @@ class Search extends React.Component {
     artistName: '',
     disabledButton: true,
     myAlbuns: [],
+    searchResults: '',
   };
 
   ableButton = () => {
@@ -32,15 +33,20 @@ class Search extends React.Component {
   };
 
   handleSearch = async () => {
-    const albuns = await searchAlbumsAPI();
-    this.setState({
-      artistName: '',
-      myAlbuns: albuns,
-    });
+    const { artistName } = this.state;
+    const albuns = await searchAlbumsAPI(artistName);
+    this.setState((prevState) => (
+      {
+        artistName: '',
+        myAlbuns: albuns,
+        searchResults: prevState.artistName,
+      }
+    ));
+    console.log(artistName);
   };
 
   render() {
-    const { artistName, disabledButton, myAlbuns } = this.state;
+    const { artistName, disabledButton, myAlbuns, searchResults } = this.state;
     return (
       <div data-testid="page-search">
         <Header />
@@ -63,12 +69,26 @@ class Search extends React.Component {
           </button>
           { myAlbuns.length === 0
             ? <h3>Nenhum álbum foi encontrado</h3>
-            : myAlbuns.map((album) => (
-              <div key={ album.collectionId }>
-                { album.collectionName }
-              </div>))}
+            : (
+              <div>
+                <h1>
+                  {`Resultado de álbuns de: ${searchResults}`}
+                </h1>
+                {myAlbuns.map((album) => (
+                  <div key={ album.collectionId }>
+                    { album.collectionName }
+                    <Link
+                      to={ `/album/${album.collectionId}` }
+                      data-testid={ `link-to-album-${album.collectionId}` }
+                    >
+                      {album.collectionId}
+                    </Link>
+
+                  </div>
+                ))}
+              </div>
+            )}
         </form>
-        <Link to="/"> Ir para a Home</Link>
       </div>
     );
   }
