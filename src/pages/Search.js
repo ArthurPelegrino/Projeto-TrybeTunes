@@ -42,7 +42,7 @@ class Search extends React.Component {
         searchResults: prevState.artistName,
       }
     ));
-    console.log(artistName);
+    // console.log(artistName);
   };
 
   render() {
