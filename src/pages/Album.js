@@ -35,7 +35,7 @@ class Album extends React.Component {
     this.setState({
       isLoading: false,
       favoriteTracks: favorites,
-    });
+    }, console.log('favoritou'));
   }
 
   render() {
