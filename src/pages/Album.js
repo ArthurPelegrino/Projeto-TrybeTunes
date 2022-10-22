@@ -35,7 +35,7 @@ class Album extends React.Component {
     this.setState({
       isLoading: false,
       favoriteTracks: favorites,
-    }, console.log('favoritou'));
+    });
   }
 
   render() {
@@ -43,6 +43,7 @@ class Album extends React.Component {
     if (isLoading) {
       return <Loading />;
     }
+    console.log(favoriteTracks);
     return (
       <div data-testid="page-album">
         <Header />
