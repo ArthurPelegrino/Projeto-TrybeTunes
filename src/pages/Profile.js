@@ -4,6 +4,8 @@ import Header from '../components/Header';
 import Loading from '../Loading';
 import { getUser } from '../services/userAPI';
 
+// commit
+
 class Profile extends React.Component {
   state = {
     isLoading: false,
